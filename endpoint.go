@@ -8,6 +8,6 @@ const (
 	APIGetItemsURL     = APIBase + "/post/api/v1/track"
 	APIRequestItemsURL = APIBase + "/post/api/v1/track/batch"
 
-	WebhookGetTokenURL  = WebhookBase + "https://trackwebhook.thailandpost.co.th/post/api/v1/authenticate/token"
-	WebhookHookTrackURL = WebhookBase + "https://trackwebhook.thailandpost.co.th/post/api/v1/hook"
+	WebhookGetTokenURL  = WebhookBase + "/post/api/v1/authenticate/token"
+	WebhookHookTrackURL = WebhookBase + "/post/api/v1/hook"
 )
