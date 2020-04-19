@@ -59,6 +59,6 @@ func handler(c *gin.Context) {
 This project is licensed under MIT license.
 See [LICENSE](LICENSE) file for details.
 
-An author of this project is not related to Thailand Post in anyway.
+The author of this project is not related to Thailand Post in anyway.
 
 Thailand Post is a trademark of Thailand Post Co., Ltd.
