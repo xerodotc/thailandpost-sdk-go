@@ -84,7 +84,7 @@ func (api *trackingAPIImpl) RequestBatchItemsWithStatus(status ItemStatus, items
 	beYear := isLanguageNeedBEConversion(api.lang)
 
 	var resp getItemsResponse
-	if err := api.doJSONPostRequest(APIGetItemsURL, req, &resp); err != nil {
+	if err := api.doJSONPostRequest(APIRequestItemsURL, req, &resp); err != nil {
 		return err
 	}
 

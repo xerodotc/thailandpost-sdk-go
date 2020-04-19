@@ -31,7 +31,7 @@ func TrackingWebhookInitWithClient(lang Lang, token string, myBearerToken string
 	return &trackingWebhookImpl{
 		clientMiddleware: &clientMiddleware{
 			RefreshToken: token,
-			AuthURL:      APIGetTokenURL,
+			AuthURL:      WebhookGetTokenURL,
 			Client:       client,
 		},
 		lang:          lang,
@@ -56,7 +56,7 @@ func (api *trackingWebhookImpl) HookTrackWithStatus(status ItemStatus, items ...
 	beYear := isLanguageNeedBEConversion(api.lang)
 
 	var resp hookTrackResponse
-	if err := api.doJSONPostRequest(APIGetItemsURL, req, &resp); err != nil {
+	if err := api.doJSONPostRequest(WebhookHookTrackURL, req, &resp); err != nil {
 		return nil, err
 	}
 
