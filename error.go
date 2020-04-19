@@ -24,6 +24,7 @@ var (
 	ErrNoLastRequest = errors.New("no last succesful request")
 )
 
+// Error returned when encountering invalid tracking numbers
 type InvalidTrackingNumbersError struct {
 	InvalidTrackingNumbers []string
 }
@@ -36,6 +37,7 @@ func (e InvalidTrackingNumbersError) Unwrap() error {
 	return ErrInvalidTrackingNumber
 }
 
+// Error returned when status is returned as unsuccessful
 type UnsuccessfulError struct {
 	Message string
 }
