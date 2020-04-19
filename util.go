@@ -7,6 +7,7 @@ import (
 var upsS10Regexp = regexp.MustCompile(`^([A-Z]{2})([0-9]{9})([A-Z]{2})$`)
 var upsS10ChecksumWeight = []int{8, 6, 4, 2, 3, 5, 9, 7}
 
+// Check whether a tracking number is comply with UPS S10 format
 func IsValidTrackingNumber(tracking string) bool {
 	if !upsS10Regexp.MatchString(tracking) {
 		return false
@@ -34,6 +35,8 @@ func IsValidTrackingNumber(tracking string) bool {
 	return true
 }
 
+// Check multiple tracking numbers
+// Return InvalidTrackingNumbersError with list of invalid tracking numbers
 func ValidateTrackingNumbers(trackings []string) error {
 	invalidTrackings := make([]string, 0, len(trackings))
 	for _, tracking := range trackings {

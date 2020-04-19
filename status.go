@@ -1,5 +1,6 @@
 package thailandpost
 
+// Item status
 type ItemStatus string
 
 const (
@@ -27,6 +28,7 @@ const (
 
 type ItemDeliveryStatus string
 
+// Delivery status
 // this one is undocumented, need to be reversed lookup
 const (
 	DeliveryStatusSuccess ItemDeliveryStatus = "S"

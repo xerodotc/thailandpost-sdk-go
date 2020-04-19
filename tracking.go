@@ -3,11 +3,16 @@ package thailandpost
 import "net/http"
 
 type TrackingAPI interface {
+	// Get items' tracking status (less than 100 items)
 	GetItems(items ...string) (TrackingStatusMap, error)
+	// Get items' tracking status (less than 100 items) with specific status
 	GetItemsWithStatus(status ItemStatus, items ...string) (TrackingStatusMap, error)
+	// Request items' tracking status via e-mail
 	RequestBatchItems(items []string) error
+	// Request items' tracking status via e-mail with specific status
 	RequestBatchItemsWithStatus(status ItemStatus, items []string) error
 
+	// Get last API call track count
 	GetLastTrackCount() (TrackCount, error)
 }
 
@@ -17,10 +22,12 @@ type trackingAPIImpl struct {
 	lang       Lang
 }
 
+// Initialize tracking API
 func TrackingAPIInit(lang Lang, token string) TrackingAPI {
 	return TrackingAPIInitWithClient(lang, token, http.DefaultClient)
 }
 
+// Initialize tracking API with custom http.Client
 func TrackingAPIInitWithClient(lang Lang, token string, client *http.Client) TrackingAPI {
 	return &trackingAPIImpl{
 		clientMiddleware: &clientMiddleware{

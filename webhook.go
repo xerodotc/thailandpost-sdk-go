@@ -8,11 +8,15 @@ import (
 )
 
 type TrackingWebhook interface {
+	// Notify hook to track items
 	HookTrack(items ...string) (HookStatusMap, error)
+	// Notify hook to track items with specific status
 	HookTrackWithStatus(status ItemStatus, items ...string) (HookStatusMap, error)
 
+	// Parse incoming http.Request for incoming webhook data
 	ParseHookData(req *http.Request) (HookData, error)
 
+	// Get last API call track count
 	GetLastTrackCount() (TrackCount, error)
 }
 

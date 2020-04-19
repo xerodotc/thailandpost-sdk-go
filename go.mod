@@ -1,3 +1,3 @@
 module github.com/xerodotc/thailandpost-sdk-go
 
-go 1.14
+go 1.13
